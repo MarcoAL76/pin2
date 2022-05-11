@@ -1,0 +1,8 @@
+pimer clase de programacion python
+ 
+ ¿Qué es Google Workspace?
+
+sEs el servicio de Gmail que ya conoce y que tanto le gusta, pero tiene un diseño exclusivo para 
+empresas, cuenta con controles de administrador y no incluye anuncios. Cambie @gmail.com por su propio dominio para crear direcciones de correo electrónico 
+
+profesionales, como sunombre@example.com o ventas@example.com.

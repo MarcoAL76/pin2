@@ -1,0 +1,160 @@
+Podemos expresar un algoritmo de muchas maneras, incluyendo lenguaje natural, diagramas de flujo, pseudocodigo y, por supuesto, en lenguajes de programacion reales.
+
+El lenguaje natural es popular, pues se nos da naturalmente y puede comunicar los pasos de un algoritmo a una audiencia general. Cuando desarrollamos algoritmos, a menudo trabajamos con personas que saben programacion y con algunos que no; pero todos conocen el lenguaje natural.
+
+
+Sin embargo, el lenguaje natural tiene inconvenientes. Tiende a ser ambiguo y a estar definido vagamente, pues carece de estructura precisa. Esto dificulta que otros sigan un algoritmo y se sientan seguros de que es correcto. Los diagramas de flujo y el pseudocodigo son formatos mas estructurados que pueden expresar un algoritmo de manera mas precisa, y son populares con cientificos de computacion y programadores.
+
+
+Todas las computadoras MIMD se dividen en dos grupos: aquellas tienen memoria compartida, que por lo general, se llaman multiprocesadores y aquellas que no, que reciben el nombre de multicomputadoras.
+
+La diferencia esta, que en un multiprocesador, existe un solo espacio de direcciones virtuales, compartido por todos los CPU. En una multicomputadora, cada maquina tiene su propia memoria particular.
+
+Cada una se puede subdividir, con base en la arquitectura de la red de interconexion, en dos categorias: como bus y con conmutador.
+
+
+
+La definicion antes brindada, se encuentra en terminos de lenguaje natural, es decir, en palabras sencillas para una facil comprension. Efectivamente, los algoritmos, representan un elemento fundamental para las ciencias exactas, donde deben seguirse procesos donde se establecen pautas inalterables para un unico resultado.
+
+De seguro que cuando lees la palabra algoritmo, vienen a tu mente una serie de operaciones algebraicas o matematicas, pero lo cierto es que, este tambien puede contemplarse en lenguaje natural, es decir, en palabras bien sencillas.
+En efecto, estos se reducen a procesos explicados paso a paso para obtener un objetivo, como si se tratase de unas instrucciones o bien de unas recetas, no son mas que procedimientos explicados detalladamente para la obtencion de un fin, del cual la persona obtendra una utilidad.
+Sin embargo, pese que el planteamiento de estos ayuda a las persona a conseguir sus finalidades, debe considerarse que los mismos pueden confundir muchas veces por la simpleza de las palabras y no ser exactos en su procedimiento.
+Modelos de algoritmos en lenguaje natural
+
+A continuacion vamos a mostrarte algunos ejemplos de algoritmos planteados en lenguaje natural, para tu mayor comprension:
+Constan de cierto numero de CPUs, conectados a un bus comun, junto con un modulo de memoria. Un bus tipico tiene 32 lineas de direcciones, 32 lineas de datos y de 20 a 30 lineas de control, todo lo cual opera en paralelo.
+
+
+
+Puesto que solo existe una memoria, si el CPU A describe una palabra en memoria y despues el CPU B lee esa palabra un microsegundo despues, B obtendra el valor recien escrito. Una memoria con esta propiedad es coherente.
+
+Si solo se dispone de 4 o 5 CPUs, el bus estara, por lo general, sobrecargado y el rendimiento disminuira en forma drastica. La solucion es añadir una memoria cache de alta velocidad entre el CPU y el bus.
+
+Si el cache es lo bastante grande, la probabilidad de exito (la tasa de encuentros) sera alta y la cantidad de trafico en el bus por cada CPU disminuira en forma drastica, lo que permite un numero mayor de CPUs en el sistema.
+
+
+
+Para construir un multiprocesador con mas de 64 procesadores, es necesario un metodo distinto para conectar cada CPU con la memoria. Una posibilidad es dividir la memoria en modulos y conectarlos a las CPU con un conmutador de cruceta. Cada CPU y cada memoria tienen una conexion que sale de el. En cada interseccion esta un delgado conmutador del punto de cruce electronico que el hardware puede abrir y cerrar.
+
+La virtud del conmutador de cruceta es que muchos CPUs pueden tener acceso a la memoria al mismo tiempo, aunque si dos CPUs intentan tener acceso a la misma memoria en forma simultanea, uno de ellos debera esperar.
+
+El lado malo del conmutador de cruceta es que con n CPUs y n memorias, se necesitan n2 conmutadores en los puntos de cruce. Si n es grande, este numero puede ser prohibitivo.
+
+Otra red de conmutacion que necesita menos conmutadores es la Red Omega. Esta red contiene conmutadores 2 x 2, cada uno de los cuales tiene dos entradas y dos salidas. Cada conmutador puede dirigir cualquiera de las entradas en cualquiera de las salidas. Si se eligen los estados adecuados de los conmutadores, cada CPU podra tener acceso a cada memoria.
+
+
+Existe ademas otro problema: el retraso. Por ejemplo, si n=1024, existen 10 etapas de conmutacion del CPU a la memoria y otras 10 para que la palabra solicitada regrese. Si una solicitud de la memoria debe recorrer un total de 20 etapas de conmutacion (10 de ida y 10 de regreso) en 20 nseg, el tiempo de conmutacion debe ser de 1 nseg. Todo el sistema multiprocesador necesitara 10240 conmutadores de 1 nseg, lo cual no resulta barato.
+
+Se ha intentado reducir el costo mediante los sistemas jerarquicos: Cada CPU tiene asociada cierta memoria.
+
+Cada CPU puede tener un rapido acceso a su propia memoria local, pero sera mas lento el acceso a la memoria de las demas. Este diseño dio lugar a la llamada maquina NUMA (Non-Uniform Memory Access).
+
+Las maquinas NUMA tienen un mejor tiempo promedio de acceso que las maquinas basadas en redes omega, tienen una nueva complicacion: la colocacion de los programas y los datos se convierte en un factor critico, para lograr que la mayoria de los accesos sean a memoria local.
+
+
+La ultima categoria es la de multicomputadoras con conmutador. Se han propuesto y construido varias redes de interconexion, pero todas tienen la propiedad de que cada CPU tiene acceso directo y exclusivo a su propia memoria particular.
+
+A continuacion, se describen dos topologias populares, una reticula y un hipercubo. Las reticulas son faciles de comprender y se basan en las tarjetas de circuitos impresos. Se adecuan mejor a problemas con una naturaleza bidimensional inherente, como la teoria de graficas o la vision.
+
+Un hipercubo es un cubo n-dimensional. El de la figura de la siguiente diapositiva, es de dimension 4. Se puede pensar como dos cubos ordinarios, cada uno de los cuales cuenta con 8 vertices y 12 aristas. Cada vertice es un CPU. Cada arista es una conexion entre dos CPU. Se conectan los vertices correspondientes de cada uno de los cubos.
+
+Para el caso de un hipercubo n-dimensional, cada CPU tiene n conexiones con otros CPU. Asi la complejidad del cableado aumenta en proporcion algoritmica con el tamaño. Puesto que solo se conectan los vecinos mas cercanos, muchos mensajes deben realizar varios saltos antes de llegar a su destino. Sin embargo, la trayectoria mas grande tambien crece en forma logaritmica junto con el tamaño, en contraste con la reticula, donde esta crece como la raiz cuadrada del numero de CPU.
+
+
+La explotacion del paralelismo de control proviene de la consideracion natural de que en una aplicacion existen acciones que podemos hacer al mismo tiempo. estas acciones, llamadas tambien tareas o procesos, pueden ejecutarse de manera mas o menos independiente sobre unos recursos de calculo llamados tambien procesadores elementales (o PE). En la siguiente figura se muestra el concepto que subyace tras el paralelismo de control
+
+En el caso de que todas las acciones sean independientes es suficiente asociar un recurso de calculo a cada una de ellas para obtener una ganancia en tiempo de ejecucion que sera
+lineal: N acciones independientes se ejecutaran N veces mas rapido sobre N Elementos de Proceso (PE) que sobre uno solo. Este es el caso ideal, pero las acciones de un programa
+real suelen presentar dependencias entre ellas.
+
+
+La explotacion del paralelismo de datos proviene de la consideracion natural de que ciertas aplicaciones trabajan con estructuras de datos muy regulares (vectores, matrices) repitiendo una misma accion sobre cada elemento de la estructura. Los recursos de calculo se asocian entonces a los datos. A menudo existe un gran numero (millares o incluso millones) de datos identicos. Si el numero de PE (Procesadores Elementales) es inferior al de datos, estos se reparten en los PE disponibles.
+
+Como las acciones efectuadas en paralelo sobre los PE son identicas, es posible centralizar el control. Siendo los datos similares, la accion a repetir tomara el mismo tiempo sobre todos los PE y el controlador podra enviar, de manera sincrona, la accion a ejecutar a todos los PE.
+
+Las limitaciones de este tipo de paralelismo vienen dadas por la necesidad de dividir los datos vectoriales para adecuarlos al tamaño soportado por la maquina, la existencia de datos escalares que limitan el rendimiento y la existencia de operaciones de difusion (un escalar se reproduce varias veces convirtiendose en un vector) y?-reducciones que no son puramente paralelas.
+
+
+La explotacion del paralelismo de flujo proviene de la consideracion natural de que ciertas aplicaciones funcionan en modo cadena: se dispone de un flujo de datos, generalmente semejantes, sobre los que se deben efectuar una sucesion de operaciones en cascada.
+
+
+Los recursos de calculo se asocian a las acciones y en cadena, de manera que los resultados de las acciones efectuadas en el instante t pasen en el instante t + 1 al PE siguiente. Este modo de funcionamiento se llama tambien segmentacion o pipeline.
+El flujo de datos puede provenir de dos fuentes:
+
+1.- Datos de tipo vectorial ubicados en memoria. Existe entonces una dualidad fuerte con el caso del paralelismo de datos.
+
+2.- Datos de tipo escalar provenientes de un dispositivo de entrada. Este dispositivo se asocia a menudo a otro de captura de datos, colocado en un entorno de tiempo real.
+En ambos casos, la ganancia obtenida esta en relacion con el numero de etapas (numero de PE). Todos los PEs no estaran ocupados mientras el primer dato no haya recorrido todo el cauce, lo mismo ocurrira al final del flujo. Si el flujo presenta frecuentes discontinuidades, las fases transitorias del principio y del fin pueden degradar seriamente la ganancia. La existencia de bifurcaciones tambien limita la ganancia obtenida.
+
+Este tipo de servidor funciona como una oficina de correo virtual que se encarga de almacenar, enviar, recibir y llevar a cabo todas las operaciones relacionadas con los mensajes de correo electronico de los clientes.
+
+Disponen de programas que cuentan con un conjunto de reglas que son definidas por el usuario. Es por medio de esta configuracion que se determina la manera en la que el servidor de correo debe reaccionar ante un mensaje especifico. Los servidores de correo
+tambien tienen varios tipos.
+
+POP3: son los que se encargan de retener los emails recibidos hasta que el usuario de la cuenta revise su correo. En ese momento, los mensajes son transferidos al equipo.
+
+SMTP: estos son los que se encargan de administrar los mensajes de correo electronico salientes. Se utiliza en combinacion con un servidor POP3 o IMAP.
+
+IMAP: este es el tipo de servidor que permite trabajar con los mensajes de correo electronico sin tener que descargarlos antes en el equipo. Gracias a esto es posible obtener una vista previa de los mensajes, asi como eliminarlos y organizarlos sin descargarlos.
+
+Este servidor se ocupa de almacenar principalmente los archivos HTML de una pagina web. Los documentos HTML incluyen textos, imagenes, videos, presentaciones y todo tipo de informacion. Estos archivos se encuentran en un formato especial que solo los navegadores de los clientes pueden visualizar.
+
+La comunicacion a traves de la Red que se da entre el servidor y el navegador siguen unas normas llamadas protocolo HTTP. Los servidores web tambien tienen varios tipos. Estos son.
+
+Apache: es el tipo de servidor web mas utilizado del mundo. Es un sistema multiplataforma que cuenta con versiones para los sistemas operativos mas importantes. Es de codigo abierto y uso gratuito. Y ademas, destaca por su rendimiento, estabilidad y seguridad.
+
+Microsoft IIS: este tipo de servidor solo funciona con sistemas Windows. Ofrece servicios de SMTP, NNTP, FTP y HTTP/HTTPS. Asi es capaz de convertir un equipo en un servidor web bien sea para Internet o para una intranet.
+
+Sun Java System Web Server: este es tambien un servidor multiplataforma distribuido con licencias de codigo abierto. Esta disponible para todos los sistemas operativos importantes y cuenta con soporte para tecnologias PHP, JSP y Java Servlet, CGI, NSAPI y ColdFusion.
+
+
+Ngnix: este tipo de servidor funciona sobre los sistemas operativos Windows y Unix. Es muy ligero, estable y de alto rendimiento. Se distribuye bajo licencia BSD de codigo abierto.
+
+Lighttp: al igual que Ngnix, este servidor Web es bastante ligero y rapido. Esta especialmente diseñado para ser utilizado en entornos donde la velocidad es muy importante. Por ello, consume poca memoria RAM. Es un software multiplataforma y libre.
+
+Este es un servidor que actua como intermediario entre un explorador de Internet como Explorer, Chrome o Firefox e Internet.
+
+Esto significa que el servidor que recibe la orden no conoce quien es el cliente que esta demandando la informacion.
+
+De esta conexion entre estos dos elementos es que depende que los usuarios puedan o no acceder a los datos.
+
+Estos servidores son los que se encargan de gestionar los nombres de dominio web. Su trabajo esta en asociar los nombres de dominio de las paginas web con la direccion IP del
+ordenador donde se encuentra alojada la pagina web que estas buscando.
+
+Cuando escribes el nombre de una pagina en un explorador, el ordenador envia este nombre de dominio al servidor DNS, el cual pertenece al proveedor de Internet, para asi devolver el
+resultado.
+
+FTP es el acronimo de File Transfer Protocol, que significa Protocolo de transferencia de archivos. Este tipo de servidor se utiliza para la transferencia de archivos entre ordenadores, es decir, de un cliente a otro.
+
+El proceso se da cuando el cliente 1 envia una peticion al servidor FTP y este le envia un archivo al cliente 2 para que sea descargado. Para esto, ambos clientes debe tener instalado un programa llamado FTP.
+
+Los servidores FTP son utilizados para subir la informacion de las paginas web a los servidores web, tal como archivos, imagenes, videos, copias de seguridad, entre otros.
+
+Este es el tipo de servidor que se dedica a manejar y a mantener el intercambio de informacion entre usuarios en los conocidos chats. Se les conoce tambien como Servidores en Tiempo Real.
+
+Uno de los servidores chat mas populares son los IRC (Internet Relay Chat).
+Se trata de varias redes de servidores separadas que permiten la conexion en tiempo real entre usuarios.
+Se trata de ordenadores que estan preparados para ofrecer servicios de almacenamiento, alojar y gestionar bases de datos que son utilizadas por uno o varios clientes.
+Estos servidores tambien realizan tareas relacionadas con el analisis de los datos y su manipulacion, el almacenamiento, entre otros.
+
+Telnet (Telecommunication Network) es un protocolo de red que permite iniciar sesion en cualquier computadora de forma remota.
+
+El trabajo del servidor Telnet es permitir esta comunicacion. En este caso, el acceso se da sin ninguna interfaz grafica y el principal objetivo es solucionar fallos a distancia.
+
+
+Este tipo de servidor, conocido tambien como Proxy SIP o Registrador, se encarga de establecer la conexion de las llamadas telefonicas por internet. Se trata del componente principal de una centralita IP, la cual maneja la configuracion de todas las llamadas SIP en la red.
+
+Los servidores SIP almacenan la direccion IP a la que se debe acceder para establecer la comunicacion con un usuario. Este es basicamente el objetivo de este tipo de servidor, ya que no transmite ni audio ni video.
+
+Muchas veces un solo servidor no se da abasto para gestionar la demanda de tantos clientes. Por eso existen los servidores cluster, que no son un conjunto de servidores que se dedican a dar servicios de computo a un gran numero de clientes.
+
+Son equipos que se especializan en el almacenamiento de informacion, por lo que cuentan con grandes capacidades para almacenar datos. El objetivo de crear un cluster de servidores 
+es evitar la perdida de la informacion debido a problemas otros servidores.
+
+La funcion de este tipo de servidores es alquilar un espacio para que los usuarios resguarden informacion. Basicamente se utilizan para almacenar grandes cantidades de datos y asi protegerla al estar fuera de los ordenadores principales de la empresa.
+
+Este tipo de servidor es utilizado por muchas compañias para resguardar su informacion mas valiosa, donde por lo general suelen realizar copias de seguridad.
+
+
+Con el uso cada vez mas extendido de Internet y el nacimiento de nuevas paginas web, tambien han nacido nuevos tipos de servidores. Uno de ellos ha sido el de imagenes.
+
